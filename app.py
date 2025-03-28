@@ -24,4 +24,4 @@ app.register_blueprint(memo_bp, url_prefix='/memos')  # memo_bp 블루프린트�
 app.register_blueprint(memo_views_bp, url_prefix='/memos_views')  # memo_views_bp 블루프린트를 등록하여 메모 관련 요청을 처리
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port="5000", host="0.0.0.0", debug=True)
