@@ -58,7 +58,9 @@ h1, h2 {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    white-space: nowrap;  /* 텍스트가 한 줄로 표시되도록 설정 */
 }
+
 
 #memoList li button:hover {
     background-color: #ff4747;
