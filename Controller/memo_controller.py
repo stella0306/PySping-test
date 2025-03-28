@@ -1,9 +1,15 @@
-from flask import Blueprint, request, Response, render_template
-from Service.Impl.memo_serivce_impl import MemoServiceImpl
-from Repository.memo_repository import MemoRepository
+from flask import request, Response, render_template, Blueprint
 import json
 
-# Blueprint 생성
+try:
+    from Service.Impl.memo_serivce_impl import MemoServiceImpl
+    from Repository.memo_repository import MemoRepository
+
+except ImportError:
+    from ..Service.Impl.memo_serivce_impl import MemoServiceImpl
+    from ..Repository.memo_repository import MemoRepository
+
+
 memo_bp = Blueprint(
     name='memos',
     import_name=__name__,
@@ -12,13 +18,6 @@ memo_bp = Blueprint(
 
 # 서비스 계층 인스턴스 생성
 memo_service = MemoServiceImpl(MemoRepository)
-
-
-# 뷰어
-@memo_bp.route("/views", methods=["GET"])
-def memo_views():
-    return render_template("memos/index.html")
-
 
 # 모든 메모 조회
 @memo_bp.route("/", methods=["GET"])

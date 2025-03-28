@@ -1,5 +1,9 @@
 from dataclasses import dataclass
-from config.database import db
+
+try:
+    from config.database import db
+except ImportError:
+    from ..config.database import db
 
 @dataclass
 class MemoEntity(db.Model):

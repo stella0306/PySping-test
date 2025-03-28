@@ -1,7 +1,15 @@
-from Service.memo_service import MemoService
-from Repository.memo_repository import MemoRepository
-from DTO.memo_dto import MemoDTO
-from Entity.memo_entity import MemoEntity
+try:
+    from Service.memo_service import MemoService
+    from Repository.memo_repository import MemoRepository
+    from DTO.memo_dto import MemoDTO
+    from Entity.memo_entity import MemoEntity
+
+except ImportError:
+    from ...Service.memo_service import MemoService
+    from ...Repository.memo_repository import MemoRepository
+    from ...DTO.memo_dto import MemoDTO
+    from ...Entity.memo_entity import MemoEntity
+
 
 class MemoServiceImpl(MemoService):
     def __init__(self, memo_repository: MemoRepository):

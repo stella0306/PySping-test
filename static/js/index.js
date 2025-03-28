@@ -11,7 +11,23 @@ window.onload = function() {
             // 메모 데이터를 목록에 동적으로 추가
             data.forEach(memo => {
                 const li = document.createElement('li');
-                li.textContent = `${memo.title} - ${memo.content}`;
+                
+                // 제목과 내용을 div로 묶고 flexbox로 레이아웃 설정
+                const memoDiv = document.createElement('div');
+                memoDiv.classList.add('memo-content');
+                
+                const titleDiv = document.createElement('div');
+                titleDiv.classList.add('title');
+                titleDiv.textContent = memo.title;
+
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('content');
+                contentDiv.textContent = memo.content;
+
+                memoDiv.appendChild(titleDiv);
+                memoDiv.appendChild(contentDiv);
+                li.appendChild(memoDiv);
+
                 memoList.appendChild(li);
 
                 

@@ -1,5 +1,8 @@
 from Entity.memo_entity import MemoEntity
-from config.database import db
+try:
+    from config.database import db
+except ImportError:
+    from ..config.database import db
 
 class MemoRepository:
     @staticmethod
