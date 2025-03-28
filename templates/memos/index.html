@@ -1,0 +1,36 @@
+<!-- templates/memos/index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모 페이지</title>
+    
+    <!-- CSS 적용 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <h1>메모 목록</h1>
+    
+    <!-- 메모 목록 표시 -->
+    <ul id="memoList">
+        <!-- 메모 목록이 동적으로 삽입될 부분 -->
+    </ul>
+
+    <!-- 메모 추가 폼 -->
+    <h2>새 메모 추가</h2>
+    <form id="memoForm">
+        <label for="title">제목:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="content">내용:</label>
+        <textarea id="content" name="content" required></textarea><br><br>
+
+        <button type="submit">메모 추가</button>
+    </form>
+
+
+    <!-- JS 적용 -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
